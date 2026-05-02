@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form đăng ký</title>
+</head>
+<body>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Thông tin đăng ký</legend>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required placeholder="you@email.com">
+
+        <label for="pass">Mật khẩu</label>
+        <input type="password" name="pass" id="pass" required 
+        minlength="8"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Ít nhất 8 ký tự,gồm chữ hoa,thường và số">
+
+        <label for="phone">SĐT</label>
+        <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="0901234567">
+
+        <label for="dob">Ngày sinh</label>
+        <input type="date" name="dob" id="dob" max="2010-01-01">
+      </fieldset>
+        <label>
+          <input type="checkbox" name="agree" required>
+          Tôi đồng ý điều khoản
+        </label>
+        <button type="submit">Đăng ký</button>
+    </form>
+</body>
+</html>
