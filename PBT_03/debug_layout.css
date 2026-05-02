@@ -1,0 +1,40 @@
+.container {
+  width: 960px;
+  margin: 20px auto;
+  background: #eee;
+  overflow: hidden;
+  display: flex;
+}
+
+.borderbox * {
+  box-sizing: border-box;
+}
+.borderbox .sidebar {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #f9f9f9;
+}
+.borderbox .content {
+  width: 660px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #fff;
+}
+
+.contentbox .sidebar {
+  width: 260px; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #f9f9f9;
+}
+.contentbox .content {
+  width: 618px; 
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #fff;
+}
