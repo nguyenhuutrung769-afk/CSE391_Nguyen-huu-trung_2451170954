@@ -78,7 +78,7 @@ Câu B3
     #demo {} → (1,0,0)
     #demo.text {} → (1,1,0)
     p#demo.highlight {} → (1,1,1)
-    #demo { color: black !important; } → (1,0,0 + !important)
+    #demo { color: black} → (1,0,0)
 2.Hiển thị màu hồng vì rule 9 có specificity cao hơn các rule khác(1,1,1)
 4.Không vì rule 9 có specificity cao hơn các rule khác(1,1,1)
 Câu C1
