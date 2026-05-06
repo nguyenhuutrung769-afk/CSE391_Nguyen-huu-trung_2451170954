@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "hero hero hero"
+        "sidebar main ads"
+        "footer footer footer";
+    gap: 20px;
+    min-height: 100vh;
+}
+
+.header {
+    grid-column: 1 / -1;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.hero-banner {
+    background: #ff9800;
+    color: #fff;
+    padding: 40px;
+    grid-column: span 3;
+    text-align: center;
+}
+
+.featured-card {
+    background: #ddd;
+    padding: 20px;
+    grid-column: span 2;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ads {
+    grid-area: ads;
+    text-align: center;
+}
+
+.ads img {
+    max-width: 100%;
+}
+
+.footer {
+    grid-column: 1 / -1;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
