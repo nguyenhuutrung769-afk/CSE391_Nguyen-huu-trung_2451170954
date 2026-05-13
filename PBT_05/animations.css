@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* CARD hover effect */
+.card {
+  background: #f1f1f1;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* BUTTON hover */
+.buy-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.buy-btn:hover {
+  background: #2980b9;
+  color: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* IMAGE zoom */
+.img-container {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.img-container img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+.img-container:hover img {
+  transform: scale(1.1);
+}
+
+/* LOADING spinner */
+.spinner {
+  margin: 30px auto;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* FADE-IN khi scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

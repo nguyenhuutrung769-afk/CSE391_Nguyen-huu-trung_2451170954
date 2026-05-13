@@ -1,0 +1,126 @@
+/* Mobile-First (mặc định <768px) */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background: #3498db;
+  color: white;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: none; /* mobile: ẩn menu ngang */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.sidebar {
+  display: none; /* mobile: ẩn sidebar */
+}
+
+.adsbar {
+  display: none; /* mobile: ẩn ads bar */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: 1 cột */
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* tablet: ẩn hamburger */
+  }
+
+  .nav-links {
+    display: block; /* hiện menu ngang */
+  }
+
+  .sidebar {
+    display: block;
+    background: #eee;
+    padding: 10px;
+    text-align: center; /* sidebar ngang */
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột */
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "sidebar product adsbar"
+      "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    display: block;
+    text-align: left;
+  }
+
+  .adsbar {
+    grid-area: adsbar;
+    display: block;
+    background: #ddd;
+    padding: 10px;
+  }
+
+  .product-grid {
+    grid-area: product;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột */
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}
