@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.header, .footer {
+  background: #333;
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.hero {
+  width: 100%;
+  height: 300px;
+  background: url('hero.jpg') center/cover no-repeat;
+}
+
+.grid-food {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: 1 cột */
+  gap: 16px;
+  padding: 16px;
+}
+
+.form, .map {
+  padding: 16px;
+}
+
+/* Tablet ≥768px */
+@media (min-width: 768px) {
+  .grid-food {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột */
+  }
+}
+
+/* Desktop ≥1024px */
+@media (min-width: 1024px) {
+  .main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* trái: grid, phải: form+map */
+    gap: 32px;
+    padding: 32px;
+  }
+
+  .grid-food {
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+  }
+}
