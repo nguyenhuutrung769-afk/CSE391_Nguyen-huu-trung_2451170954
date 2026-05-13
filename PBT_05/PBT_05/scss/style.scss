@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+@import 'components';
+
+body {
+  margin: 0;
+  font-family: $font-primary;
+  font-size: 14px;
+
+  @include respond-to(tablet) {
+    font-size: 16px;
+  }
+
+  @include respond-to(desktop) {
+    font-size: 18px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

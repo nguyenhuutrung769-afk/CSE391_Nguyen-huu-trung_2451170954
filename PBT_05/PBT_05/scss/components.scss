@@ -1,0 +1,60 @@
+.card {
+  background: #f1f1f1;
+  padding: $spacing-md;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  .card-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: $spacing-sm;
+  }
+
+  .card-title {
+    font-family: $font-primary;
+    font-size: 1rem;
+    margin-bottom: $spacing-sm;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    @include card-shadow;
+  }
+
+  &.featured {
+    border: 2px solid $secondary-color;
+  }
+}
+
+.nav {
+  @include flex-center;
+  background: $primary-color;
+  color: white;
+  padding: $spacing-sm;
+
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-left: $spacing-md;
+    }
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
