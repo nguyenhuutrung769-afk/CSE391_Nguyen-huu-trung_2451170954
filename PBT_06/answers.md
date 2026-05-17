@@ -52,5 +52,5 @@ Khả năng tùy biến
     Bootstrap:Tùy biến qua SASS variables, nhưng khó thay đổi sâu nếu không build lại
 NÊN dùng Bootstrap:Khi cần làm nhanh, đồng bộ, nhiều component sẵn có, dự án lớn nhiều người	
 KHÔNG NÊN dùng Bootstrap:Khi dự án nhỏ, cần tối ưu hiệu năng, hoặc muốn thiết kế độc đáo không phụ thuộc framework	
-
+Phần D link video:https://www.youtube.com/watch?v=r1OTCiDzcwg
 
