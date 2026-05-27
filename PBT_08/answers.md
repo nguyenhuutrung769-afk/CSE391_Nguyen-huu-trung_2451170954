@@ -67,3 +67,52 @@ console.log(updated.sale);             // true
 console.log(product.price);            // 25990000
 console.log(product.specs.ram);        // 16
 copy.specs.ram làm giá trị trong product.specs.ram thay đổi → in ra 16
+Câu C1
+function processOrders(orders) {
+  return orders
+    .filter(o => o.status === "completed" && o.total > 100000)
+    .map(({ id, customer, total }) => {
+      const discount = total * 0.1;
+      return { id, customer, total, discount, finalTotal: total - discount };
+    })
+    .sort((a, b) => b.finalTotal - a.finalTotal);
+}
+Câu C2
+const miniArray = {
+    map(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+        }
+        return result;
+    },
+    filter(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    },
+    reduce(arr, fn, initialValue) {
+        let acc = initialValue;
+        let startIndex = 0;
+
+        // Nếu không truyền initialValue thì lấy phần tử đầu tiên làm acc
+        if (acc === undefined) {
+            acc = arr[0];
+            startIndex = 1;
+        }
+
+        for (let i = startIndex; i < arr.length; i++) {
+            acc = fn(acc, arr[i], i, arr);
+        }
+        return acc;
+    }
+};
+
+// Test phải pass:
+console.log(miniArray.map([1,2,3], x => x * 2));        // → [2,4,6]
+console.log(miniArray.filter([1,2,3,4], x => x > 2));    // → [3,4]
+console.log(miniArray.reduce([1,2,3,4], (a,b) => a+b, 0)); // → 10
