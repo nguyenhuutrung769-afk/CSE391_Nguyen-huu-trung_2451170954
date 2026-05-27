@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Đăng ký</h1>
+        <form id="registerForm">
+            <label>Tên:
+                <input type="text" id="name">
+                <span id="nameStatus"></span>
+            </label>
+            <label>Email:
+                <input type="email" id="email">
+                <small id="emailError"></small>
+            </label>
+            <label>Password:
+                <input type="password" id="password">
+                <div id="strengthBar">
+                    <div></div>
+                </div>
+            </label>
+            <label>Confirm Password:
+                <input type="password" id="confirmPassword">
+                <small id="confirmError"></small>
+            </label>
+            <label>Phone:
+                <input type="text" id="phone" maxlength="12">
+            </label>
+            <button type="submit" id="submitBtn" disabled>Submit</button>
+        </form>
+    </div>
+    <div id="modal" class="hidden"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
