@@ -48,3 +48,69 @@ console.log("OUTER");   ->OUTER
 console.log("INNER");   ->INNER
 console.log("BUTTON"); ->BUTTON
 có e.stopPropagation() trong handler của button ->BUTTON
+Câu C1
+// App: Counter with history
+const countDisplay = document.querySelector(".count");
+const historyList = document.getElementById("history");
+
+let count = 0;
+
+document.querySelector("#incrementBtn").addEventListener("click", function() {
+    count++;
+    countDisplay.textContent = count; // ❌ dùng textContent để tránh XSS
+
+    // Lưu history
+    const li = document.createElement("li");
+    li.textContent = "Count changed to " + count;
+    li.addEventListener("click", function() {
+        deleteHistory(this);
+    });
+    historyList.appendChild(li); // dùng appendChild cho rõ ràng
+});
+
+document.querySelector("#decrementBtn").addEventListener("click", function() { // "onclick" không phải event type->"click"
+    count--;
+    countDisplay.textContent = count; // ❌ dùng textContent để tránh XSS
+});
+
+document.querySelector("#resetBtn").addEventListener("click", () => {
+    count = 0;
+    countDisplay.textContent = count; // gán lại biến DOM thành số → mất tham chiếu->countDisplay.textContent = count;
+    historyList.innerHTML = ""; // innerHTML nhận string, không phải null->""
+});
+
+function deleteHistory(element) {
+    element.parentNode.removeChild(element);
+}
+
+// Clear all history
+document.querySelector("#clearHistory").addEventListener("click", () => {
+    const items = historyList.querySelectorAll("li");
+    items.forEach(item => {
+        item.remove(); // Sai: thiếu dấu (), không gọi hàm->remove()
+    });
+});
+
+// Save to localStorage
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("count", count);
+    localStorage.setItem("history", historyList.innerHTML);
+});
+
+// Load from localStorage
+window.addEventListener("load", () => {
+    count = parseInt(localStorage.getItem("count")) || 0; // getItem trả về string, cần số->count = parseInt(localStorage.getItem("count")) || 0;
+    countDisplay.textContent = count;
+    historyList.innerHTML = localStorage.getItem("history") || ""; // chỉ load count, bỏ qua history->historyList.innerHTML = localStorage.getItem("history") || "";
+});
+Câu C2
+1.
+    Vì sao bind event lên 1000 elements riêng lẻ là BAD PRACTICE
+        Tốn bộ nhớ: Mỗi element có một listener riêng → tạo ra 1000 function references trong RAM
+        Tốn CPU: Trình duyệt phải quản lý 1000 listener, mỗi lần click phải duyệt qua nhiều handler
+        Khó bảo trì: Nếu muốn thay đổi logic, phải sửa ở nhiều nơi hoặc remove từng listener
+    -> giải quyết bằng cách: chỉ bind 1 listener lên phần tử cha (ví dụ document.body hoặc #list). Khi event bubble lên, ta kiểm tra event.target để biết element nào được click.
+    → Ưu điểm: ít listener hơn, tiết kiệm tài nguyên, dễ bảo trì
+2.
+DocumentFragment là một container ảo trong bộ nhớ, không gắn trực tiếp vào DOM.Khi append vào fragment, không gây reflow/repaint.Chỉ khi append fragment vào document.body, toàn bộ 1000 nodes mới được thêm vào DOM một lần duy nhất → chỉ 1 lần reflow.
+->Kết quả: hiệu năng cao hơn rất nhiều, đặc biệt khi render số lượng lớn elements.
