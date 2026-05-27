@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Keyboard Navigation Demo</h1>
+        <button id="darkToggle" aria-label="Toggle Dark Mode">🌙</button>
+        <div id="cartIcon" tabindex="0" aria-label="Cart">🛒</div>
+    </header>
+    <main>
+        <div id="gallery"></div>
+    </main>
+    <div id="modal" class="hidden"></div>
+    <div id="commandPalette" class="hidden">
+        <input id="commandInput" type="text" placeholder="Type a command..." aria-label="Command Search">
+        <ul id="commandList"></ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
