@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>User Directory</h1>
+        <input id="searchInput" type="text" placeholder="Search by name/email...">
+        <button id="createBtn">Thêm User</button>
+        <div id="state"></div>
+        <div id="userList"></div>
+    </div>
+    <div id="formModal" class="hidden">
+        <div class="modal-content">
+            <h2 id="formTitle"></h2>
+            <input id="nameInput" placeholder="Name">
+            <input id="emailInput" placeholder="Email">
+            <button id="saveBtn">Save</button>
+            <button id="closeBtn">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
