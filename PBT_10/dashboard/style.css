@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+#widgets {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.widget {
+    flex: 1;
+    min-width: 250px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.widget h2 {
+    margin-top: 0;
+}
+
+.loading {
+    color: gray;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
