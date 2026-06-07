@@ -114,3 +114,4 @@ Câu C2
 2.
 DocumentFragment là một container ảo trong bộ nhớ, không gắn trực tiếp vào DOM.Khi append vào fragment, không gây reflow/repaint.Chỉ khi append fragment vào document.body, toàn bộ 1000 nodes mới được thêm vào DOM một lần duy nhất → chỉ 1 lần reflow.
 ->Kết quả: hiệu năng cao hơn rất nhiều, đặc biệt khi render số lượng lớn elements.
+Phần D link video:https://www.youtube.com/watch?v=cOrnn3HWlsA

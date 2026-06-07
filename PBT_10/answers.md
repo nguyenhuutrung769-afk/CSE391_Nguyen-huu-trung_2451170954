@@ -165,3 +165,4 @@ Promise.any([
   fetch("/api/products-source3").then(r=>r.json())
 ]).then(data=>renderProducts(data))
   .catch(err=>ui.showError("All sources failed"));
+Phần D link video:https://www.youtube.com/watch?v=YPULlTxQkgo

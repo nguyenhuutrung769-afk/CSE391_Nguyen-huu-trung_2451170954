@@ -116,3 +116,4 @@ const miniArray = {
 console.log(miniArray.map([1,2,3], x => x * 2));        // → [2,4,6]
 console.log(miniArray.filter([1,2,3,4], x => x > 2));    // → [3,4]
 console.log(miniArray.reduce([1,2,3,4], (a,b) => a+b, 0)); // → 10
+Phần D link video: https://www.youtube.com/watch?v=cnZMLkng8ws&t=297s
